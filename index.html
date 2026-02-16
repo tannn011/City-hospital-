@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>City Hospital | Multi-Speciality Care</title>
+  <meta name="description" content="City Hospital - Multi-speciality hospital with modern diagnosis, comfortable care, bed availability, and easy appointments." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Soft, premium typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Intro / Loader (Animated hospital name) -->
+  <div id="intro" class="intro" aria-hidden="true">
+    <div class="intro__bg"></div>
+    <div class="intro__content">
+      <div class="intro__mark">
+        <div class="pulse-ring"></div>
+        <div class="pulse-dot"></div>
+      </div>
+      <h1 class="intro__title">
+        <span class="reveal-text" data-reveal="City Hospital">City Hospital</span>
+      </h1>
+      <p class="intro__subtitle">Multi-Speciality • Calm Care • Modern Diagnosis</p>
+      <div class="intro__progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+        <div class="intro__bar" id="introBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top progress indicator -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scrollBar"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="top">
+    <nav class="nav container">
+      <a class="brand" href="#top" aria-label="City Hospital Home">
+        <span class="brand__logo" aria-hidden="true"></span>
+        <span class="brand__name">City Hospital</span>
+        <span class="brand__tag">Multi‑Speciality</span>
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav__links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#specialities">Specialities</a>
+        <a href="#beds">Bed Availability</a>
+        <a href="#diagnostics">Diagnostics</a>
+        <a href="#appointment" class="btn btn--small">Book Appointment</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero__bg" id="parallaxBg" aria-hidden="true"></div>
+
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <div class="chip reveal">
+            <span class="chip__dot"></span>
+            Calm, clean & compassionate environment
+          </div>
+
+          <h1 class="hero__title reveal">
+            Advanced care in a calming, cream‑matte space.
+          </h1>
+
+          <p class="hero__lead reveal">
+            City Hospital is a multi-speciality hospital designed for comfort—modern diagnosis, experienced doctors, and real-time bed availability.
+          </p>
+
+          <div class="hero__cta reveal">
+            <a class="btn" href="#appointment">Book an Appointment</a>
+            <a class="btn btn--ghost" href="#beds">Check Beds</a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="stat reveal">
+              <div class="stat__value" data-counter="24">0</div>
+              <div class="stat__label">Emergency Support</div>
+            </div>
+            <div class="stat reveal">
+              <div class="stat__value" data-counter="15">0</div>
+              <div class="stat__label">Specialities</div>
+            </div>
+            <div class="stat reveal">
+              <div class="stat__value" data-counter="120">0</div>
+              <div class="stat__label">Beds (Total)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__card reveal">
+          <div class="hero__cardHeader">
+            <h3>Today’s Availability</h3>
+            <p class="muted">Auto-updates (demo)</p>
+          </div>
+
+          <div class="availability">
+            <div class="availability__row">
+              <div>
+                <div class="availability__label">General Ward</div>
+                <div class="availability__meta"><span id="gwCount">—</span> beds</div>
+              </div>
+              <div class="meter">
+                <div class="meter__fill" id="gwMeter"></div>
+              </div>
+            </div>
+
+            <div class="availability__row">
+              <div>
+                <div class="availability__label">ICU</div>
+                <div class="availability__meta"><span id="icuCount">—</span> beds</div>
+              </div>
+              <div class="meter">
+                <div class="meter__fill" id="icuMeter"></div>
+              </div>
+            </div>
+
+            <div class="availability__row">
+              <div>
+                <div class="availability__label">Private Rooms</div>
+                <div class="availability__meta"><span id="prCount">—</span> rooms</div>
+              </div>
+              <div class="meter">
+                <div class="meter__fill" id="prMeter"></div>
+              </div>
+            </div>
+
+            <div class="availability__footer">
+              <span class="dot-live"></span>
+              <span class="muted">Last updated: <span id="lastUpdated">—</span></span>
+            </div>
+          </div>
+
+          <div class="hero__cardActions">
+            <a class="btn btn--small" href="#beds">View Full Dashboard</a>
+            <a class="btn btn--small btn--ghost" href="#appointment">Request Admission</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__fade" aria-hidden="true"></div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title reveal">A calming hospital experience</h2>
+          <p class="section__subtitle reveal">
+            Cream, matte finishes and soft motion—so patients feel safe, guided, and relaxed.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card reveal">
+            <h3>Patient-first design</h3>
+            <p class="muted">
+              Minimal noise, soft lighting, and clear navigation—built to reduce stress for patients and attendants.
+            </p>
+            <ul class="list">
+              <li>Friendly reception & guided care</li>
+              <li>Clean waiting zones with calming palette</li>
+              <li>Fast registration and billing flow</li>
+            </ul>
+          </div>
+
+          <div class="card reveal">
+            <h3>Modern diagnosis & care</h3>
+            <p class="muted">
+              Strong diagnostic support with specialist consultation—so you get clarity quickly.
+            </p>
+            <ul class="list">
+              <li>Lab tests & imaging support</li>
+              <li>Specialist consultation across departments</li>
+              <li>Emergency triage-ready workflow</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <figure class="gallery__item reveal">
+            <img alt="Hospital reception area" src="https://images.unsplash.com/photo-1579684288452-39e484c8e7f4?auto=format&fit=crop&w=1600&q=70">
+            <figcaption>Reception & guidance</figcaption>
+          </figure>
+          <figure class="gallery__item reveal">
+            <img alt="Doctor consultation" src="https://images.unsplash.com/photo-1580281658628-9b0b8b8b3b7b?auto=format&fit=crop&w=1600&q=70">
+            <figcaption>Specialist consultation</figcaption>
+          </figure>
+          <figure class="gallery__item reveal">
+            <img alt="Hospital corridor" src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=70">
+            <figcaption>Calm & clean spaces</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specialities -->
+    <section class="section section--soft" id="specialities">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title reveal">Multi‑Speciality Departments</h2>
+          <p class="section__subtitle reveal">
+            Select a department while booking—your request goes to WhatsApp with full details.
+          </p>
+        </div>
+
+        <div class="chips reveal">
+          <button class="pill" data-pill="Cardiology">Cardiology</button>
+          <button class="pill" data-pill="Orthopedics">Orthopedics</button>
+          <button class="pill" data-pill="Neurology">Neurology</button>
+          <button class="pill" data-pill="General Medicine">General Medicine</button>
+          <button class="pill" data-pill="ENT">ENT</button>
+          <button class="pill" data-pill="Dermatology">Dermatology</button>
+          <button class="pill" data-pill="Gynecology">Gynecology</button>
+          <button class="pill" data-pill="Pediatrics">Pediatrics</button>
+          <button class="pill" data-pill="Urology">Urology</button>
+          <button class="pill" data-pill="Gastroenterology">Gastroenterology</button>
+          <button class="pill" data-pill="Pulmonology">Pulmonology</button>
+          <button class="pill" data-pill="Ophthalmology">Ophthalmology</button>
+        </div>
+
+        <div class="dept-grid">
+          <article class="dept reveal">
+            <h3>Emergency & Trauma</h3>
+            <p class="muted">Rapid triage • Stabilization • Admission coordination</p>
+          </article>
+          <article class="dept reveal">
+            <h3>Diagnosis & Imaging</h3>
+            <p class="muted">Lab tests • X‑ray • Ultrasound • ECG</p>
+          </article>
+          <article class="dept reveal">
+            <h3>Inpatient Care</h3>
+            <p class="muted">General ward • Private rooms • ICU support</p>
+          </article>
+          <article class="dept reveal">
+            <h3>Preventive Health</h3>
+            <p class="muted">Health checkups • Lifestyle guidance</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beds Dashboard -->
+    <section class="section" id="beds">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title reveal">Bed Availability Dashboard</h2>
+          <p class="section__subtitle reveal">
+            Live-style display (demo). Replace numbers with your real backend later.
+          </p>
+        </div>
+
+        <div class="beds-grid">
+          <div class="bed-card reveal">
+            <div class="bed-card__top">
+              <h3>General Ward</h3>
+              <span class="badge" id="gwBadge">—</span>
+            </div>
+            <div class="bed-card__bar">
+              <div class="bed-card__fill" id="gwDashFill"></div>
+            </div>
+            <div class="bed-card__meta">
+              <span>Total: <strong id="gwTotal">60</strong></span>
+              <span>Available: <strong id="gwAvail">—</strong></span>
+            </div>
+          </div>
+
+          <div class="bed-card reveal">
+            <div class="bed-card__top">
+              <h3>ICU</h3>
+              <span class="badge" id="icuBadge">—</span>
+            </div>
+            <div class="bed-card__bar">
+              <div class="bed-card__fill" id="icuDashFill"></div>
+            </div>
+            <div class="bed-card__meta">
+              <span>Total: <strong id="icuTotal">20</strong></span>
+              <span>Available: <strong id="icuAvail">—</strong></span>
+            </div>
+          </div>
+
+          <div class="bed-card reveal">
+            <div class="bed-card__top">
+              <h3>Private Rooms</h3>
+              <span class="badge" id="prBadge">—</span>
+            </div>
+            <div class="bed-card__bar">
+              <div class="bed-card__fill" id="prDashFill"></div>
+            </div>
+            <div class="bed-card__meta">
+              <span>Total: <strong id="prTotal">40</strong></span>
+              <span>Available: <strong id="prAvail">—</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="note reveal">
+          <strong>Tip:</strong> If you want *real* bed counts, tell me what system you use (Excel, hospital software, API),
+          and I’ll wire this dashboard to it.
+        </div>
+      </div>
+    </section>
+
+    <!-- Diagnostics -->
+    <section class="section section--soft" id="diagnostics">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title reveal">Diagnosis & Tests</h2>
+          <p class="section__subtitle reveal">
+            Choose tests while booking. The WhatsApp message will include your selected diagnosis requirements.
+          </p>
+        </div>
+
+        <div class="diag-grid">
+          <div class="diag-card reveal">
+            <h3>Basic Tests</h3>
+            <ul class="list">
+              <li>Blood Sugar (F/PP/R)</li>
+              <li>CBC</li>
+              <li>Lipid Profile</li>
+              <li>LFT / KFT</li>
+            </ul>
+          </div>
+          <div class="diag-card reveal">
+            <h3>Heart</h3>
+            <ul class="list">
+              <li>ECG</li>
+              <li>2D Echo</li>
+              <li>TMT (if available)</li>
+            </ul>
+          </div>
+          <div class="diag-card reveal">
+            <h3>Imaging</h3>
+            <ul class="list">
+              <li>X‑Ray</li>
+              <li>Ultrasound</li>
+              <li>CT / MRI (if available)</li>
+            </ul>
+          </div>
+          <div class="diag-card reveal">
+            <h3>Respiratory</h3>
+            <ul class="list">
+              <li>PFT</li>
+              <li>Chest X‑Ray</li>
+              <li>Oxygen assessment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appointment -->
+    <section class="section" id="appointment">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title reveal">Book Appointment (WhatsApp)</h2>
+          <p class="section__subtitle reveal">
+            Fill the form—then WhatsApp opens with a prefilled message to <strong>+91 8605463560</strong>.
+          </p>
+        </div>
+
+        <div class="form-wrap reveal">
+          <form id="appointmentForm" class="form" autocomplete="on">
+            <div class="form__grid">
+              <div class="field">
+                <label for="fullName">Full Name</label>
+                <input id="fullName" name="fullName" type="text" placeholder="Patient name" required />
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel" placeholder="10-digit mobile" required />
+              </div>
+
+              <div class="field">
+                <label for="email">Email (optional)</label>
+                <input id="email" name="email" type="email" placeholder="name@example.com" />
+              </div>
+
+              <div class="field">
+                <label for="age">Age</label>
+                <input id="age" name="age" type="number" min="0" max="120" placeholder="Age" required />
+              </div>
+
+              <div class="field">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                  <option value="" selected disabled>Select</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
+                  <option>Prefer not to say</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="department">Department / Problem Type</label>
+                <select id="department" name="department" required>
+                  <option value="" selected disabled>Select department</option>
+                  <option>General Medicine</option>
+                  <option>Cardiology</option>
+                  <option>Orthopedics</option>
+                  <option>Neurology</option>
+                  <option>ENT</option>
+                  <option>Dermatology</option>
+                  <option>Gynecology</option>
+                  <option>Pediatrics</option>
+                  <option>Urology</option>
+                  <option>Gastroenterology</option>
+                  <option>Pulmonology</option>
+                  <option>Ophthalmology</option>
+                  <option>Emergency & Trauma</option>
+                </select>
+              </div>
+
+              <div class="field field--wide">
+                <label for="symptoms">Symptoms / Issue Description</label>
+                <textarea id="symptoms" name="symptoms" rows="4" placeholder="Describe symptoms, duration, severity..." required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="date">Preferred Date</label>
+                <input id="date" name="date" type="date" required />
+              </div>
+
+              <div class="field">
+                <label for="time">Preferred Time</label>
+                <input id="time" name="time" type="time" required />
+              </div>
+
+              <div class="field">
+                <label for="visitType">Visit Type</label>
+                <select id="visitType" name="visitType" required>
+                  <option value="" selected disabled>Select</option>
+                  <option>New Consultation</option>
+                  <option>Follow-up</option>
+                  <option>Online Consultation (if available)</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="priority">Priority</label>
+                <select id="priority" name="priority" required>
+                  <option value="" selected disabled>Select</option>
+                  <option>Normal</option>
+                  <option>Urgent (same day)</option>
+                  <option>Emergency</option>
+                </select>
+              </div>
+
+              <fieldset class="fieldset field--wide">
+                <legend>Diagnosis / Tests Needed (optional)</legend>
+                <div class="checks">
+                  <label class="check"><input type="checkbox" name="tests" value="CBC"> CBC</label>
+                  <label class="check"><input type="checkbox" name="tests" value="Blood Sugar"> Blood Sugar</label>
+                  <label class="check"><input type="checkbox" name="tests" value="LFT/KFT"> LFT/KFT</label>
+                  <label class="check"><input type="checkbox" name="tests" value="ECG"> ECG</label>
+                  <label class="check"><input type="checkbox" name="tests" value="X-Ray"> X‑Ray</label>
+                  <label class="check"><input type="checkbox" name="tests" value="Ultrasound"> Ultrasound</label>
+                  <label class="check"><input type="checkbox" name="tests" value="2D Echo"> 2D Echo</label>
+                  <label class="check"><input type="checkbox" name="tests" value="Other"> Other</label>
+                </div>
+              </fieldset>
+
+              <div class="field field--wide">
+                <label for="notes">Additional Notes (optional)</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Any previous diagnosis, medicines, allergies..."></textarea>
+              </div>
+            </div>
+
+            <div class="form__actions">
+              <button class="btn" type="submit">Send to WhatsApp</button>
+              <button class="btn btn--ghost" type="reset">Reset</button>
+            </div>
+
+            <p class="form__hint muted">
+              Note: WhatsApp will open with a pre-filled message. You press <strong>Send</strong>.
+            </p>
+          </form>
+
+          <aside class="side-card">
+            <h3>Quick Contact</h3>
+            <p class="muted">For urgent issues, call your local emergency services. For hospital coordination:</p>
+            <div class="side-card__row">
+              <div class="mini">
+                <div class="mini__label">WhatsApp</div>
+                <a class="mini__value" href="https://wa.me/918605463560" target="_blank" rel="noopener">+91 8605463560</a>
+              </div>
+              <div class="mini">
+                <div class="mini__label">Email</div>
+                <span class="mini__value">info@cityhospital.example</span>
+              </div>
+            </div>
+            <div class="soft-divider"></div>
+            <p class="muted">
+              Want this to submit to your CRM + WhatsApp? Tell me what platform you use and I’ll integrate it.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map -->
+    <section class="section section--soft" id="map">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title reveal">Find City Hospital</h2>
+          <p class="section__subtitle reveal">
+            Map embed below. Replace the query with your exact Google Maps location link.
+          </p>
+        </div>
+
+        <div class="map-card reveal">
+          <iframe
+            title="City Hospital Map"
+            src="https://www.google.com/maps?q=City%20Hospital&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <footer class="footer reveal">
+          <div class="footer__grid">
+            <div>
+              <div class="footer__brand">
+                <span class="brand__logo" aria-hidden="true"></span>
+                <div>
+                  <strong>City Hospital</strong>
+                  <div class="muted">Multi‑Speciality Care</div>
+                </div>
+              </div>
+              <p class="muted">
+                Cream & matte design focused on calm patient experience.
+              </p>
+            </div>
+            <div>
+              <strong>Sections</strong>
+              <div class="footer__links">
+                <a href="#about">About</a>
+                <a href="#specialities">Specialities</a>
+                <a href="#beds">Beds</a>
+                <a href="#appointment">Appointment</a>
+              </div>
+            </div>
+            <div>
+              <strong>Contact</strong>
+              <div class="footer__links">
+                <a href="https://wa.me/918605463560" target="_blank" rel="noopener">WhatsApp: +91 8605463560</a>
+                <a href="#map">Map & Location</a>
+              </div>
+            </div>
+          </div>
+          <div class="footer__bottom muted">
+            © <span id="year"></span> City Hospital. All rights reserved.
+          </div>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
